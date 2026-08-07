@@ -1,0 +1,207 @@
+body{
+    font-family:'Poppins',sans-serif;
+    background:#F9FAFB;
+    color:#374151;
+}
+
+.navbar-brand{
+    letter-spacing:1px;
+}
+
+.nav-link{
+    font-weight:500;
+    margin-left:10px;
+}
+
+.btn-warning{
+    background:#FF6B35;
+    border:none;
+}
+
+.btn-warning:hover{
+    background:#e85b2a;
+}
+
+.btn-outline-warning{
+    border-color:#FF6B35;
+    color:#FF6B35;
+}
+
+.btn-outline-warning:hover{
+    background:#FF6B35;
+    color:white;
+}
+/* Hero Section */
+.hero{
+    min-height:80vh;
+    display:flex;
+    align-items:center;
+}
+
+.hero h1{
+    color:#1F2937;
+    line-height:1.2;
+}
+
+.hero p{
+    max-width:500px;
+}
+
+.hero-img{
+    max-width:500px;
+    width:100%;
+    transition:0.4s;
+}
+
+.hero-img:hover{
+    transform:scale(1.05);
+}
+/* ==========================
+   CATEGORY SECTION
+========================== */
+
+.category-card{
+    background:#fff;
+    border-radius:20px;
+    transition:0.3s ease;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    cursor:pointer;
+}
+
+.category-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 12px 25px rgba(0,0,0,0.15);
+}
+
+.category-icon{
+    font-size:60px;
+}
+/* Food Cards */
+
+.food-card{
+    border-radius:15px;
+    overflow:hidden;
+    transition:0.3s;
+}
+
+.food-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,0,0,.15)!important;
+}
+
+.food-card img{
+    height:220px;
+    object-fit:cover;
+}
+
+.food-card .btn{
+    border-radius:30px;
+    padding:6px 18px;
+}
+.feature-box{
+    background:#fff;
+    border-radius:15px;
+    transition:.3s;
+    height:100%;
+}
+
+.feature-box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+}
+
+.feature-icon{
+    font-size:3rem;
+}
+.review-card{
+    border-radius:15px;
+    transition:.3s;
+}
+
+.review-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+tbody tr{
+
+transition:.3s;
+
+}
+
+tbody tr:hover{
+
+background:#fff3cd;
+
+transform:scale(1.01);
+
+}
+.card{
+
+    border:none;
+    border-radius:18px;
+    overflow:hidden;
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.18);
+
+}
+
+.card img{
+
+    transition:.35s;
+
+}
+
+.card:hover img{
+
+    transform:scale(1.08);
+
+}
+
+.btn-warning{
+
+    border-radius:10px;
+
+}
+html{
+    scroll-behavior: smooth;
+}
+.card{
+    border-radius:20px;
+    overflow:hidden;
+    transition:0.35s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 40px rgba(0,0,0,.18);
+}
+
+.card img{
+    transition:0.35s;
+}
+
+.card:hover img{
+    transform:scale(1.08);
+}
+
+.btn-warning{
+    background:#D97706;
+    border:none;
+    font-weight:600;
+}
+
+.btn-warning:hover{
+    background:#8B0000;
+}
+
+section{
+    overflow:hidden;
+}

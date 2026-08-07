@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Annapurna</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body class="bg-light">
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="/">
+            🍽 Annapurna
+        </a>
+
+        <div class="ms-auto">
+
+            <a href="/customer/dashboard"
+               class="btn btn-outline-warning me-2">
+                Dashboard
+            </a>
+
+            <a href="/customer/cart"
+            class="btn btn-warning"
+            id="cartBtn">
+
+                🛒 Cart (0)
+
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+<!-- Menu Section -->
+<div class="container py-5">
+
+    <h2 class="text-center fw-bold mb-4">
+        Our Delicious Veg Menu
+    </h2>
+
+    <!-- Search + Category -->
+    <div class="row mb-4 justify-content-center">
+
+        <div class="col-md-6">
+
+            <input
+                type="text"
+                id="searchInput"
+                class="form-control"
+                placeholder="🔍 Search dishes...">
+
+        </div>
+
+        <div class="col-md-4">
+
+            <select
+                id="categoryFilter"
+                class="form-select">
+
+                <option value="All">All Categories</option>
+                <option>North Indian</option>
+                <option>South Indian</option>
+                <option>Street Food</option>
+                <option>Snacks</option>
+                <option>Desserts</option>
+                <option>Beverages</option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- Food Cards -->
+    <div class="row mt-4" id="menuContainer">
+
+        <!-- Cards appear here -->
+
+    </div>
+
+    <!-- Back Button -->
+    <div class="mt-4">
+
+        <button
+            class="btn btn-outline-warning rounded-pill px-4"
+            onclick="history.back()">
+
+            ← Back
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- Footer -->
+<footer class="text-center py-4 mt-5 bg-dark text-white">
+
+    <h5>🍽 Annapurna</h5>
+
+    <p class="mb-1">
+        Pure Vegetarian Food Ordering System
+    </p>
+
+    <small>
+        © 2026 Annapurna
+    </small>
+
+</footer>
+
+
+<!-- Toast -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3">
+
+    <div
+        id="cartToast"
+        class="toast text-bg-success"
+        role="alert"
+        data-bs-delay="2000">
+
+        <div class="toast-body">
+
+            ✅ Added to Cart Successfully!
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Menu JS -->
+<script src="/js/menu.js"></script>
+
+</body>
+</html>

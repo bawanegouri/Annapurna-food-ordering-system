@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1785860976105,
+        "name": "Dhokla",
+        "price": 100,
+        "category": "Snacks",
+        "image": "/images/1785860976100-Dhokla à¤¢à¥à¤à¤³à¤¾.jpg"
+    },
+    {
+        "id": 1785860995423,
+        "name": "Iced Americano ",
+        "price": 120,
+        "category": "Beverages",
+        "image": "/images/1785860995415-icedamericano.jpg"
+    },
+    {
+        "id": 1785861050127,
+        "name": "Masala Dosa",
+        "price": 140,
+        "category": "South Indian",
+        "image": "/images/1785861050119-dosaa.jpg"
+    },
+    {
+        "id": 1785861086317,
+        "name": "Kajukatli",
+        "price": 150,
+        "category": "Desserts",
+        "image": "/images/1785861086307-à¤à¤¾à¤à¥ à¤à¤¤à¤²à¥.jpg"
+    },
+    {
+        "id": 1785861227971,
+        "name": "Mango Lassi",
+        "price": 80,
+        "category": "Beverages",
+        "image": "/images/1785861227967-mango_lassi.jpg"
+    },
+    {
+        "id": 1785861288685,
+        "name": "Papdi Chaat",
+        "price": 30,
+        "category": "Street Food",
+        "image": "/images/1785861288678-papdi_chaat.jpg"
+    },
+    {
+        "id": 1785861321984,
+        "name": "Pani Puri",
+        "price": 40,
+        "category": "Street Food",
+        "image": "/images/1785861321976-ðª.jpg"
+    },
+    {
+        "id": 1785861374089,
+        "name": "Butter Paneer",
+        "price": 200,
+        "category": "North Indian",
+        "image": "/images/1785861374082-butter_paneer.jpg"
+    }
+]

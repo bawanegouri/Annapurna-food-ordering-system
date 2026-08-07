@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Add Food | Annapurna Admin</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+font-family:Poppins,sans-serif;
+}
+
+*{
+    font-family: Poppins, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#fff7e6,#ffe8cc,#ffd6a5);
+    min-height:100vh;
+    margin:0;
+}
+
+.card{
+    width:650px;
+    border:none;
+    border-radius:22px;
+    overflow:hidden;
+    box-shadow:0 20px 45px rgba(0,0,0,.15);
+}
+
+.card-header{
+    background:linear-gradient(90deg,#8B0000,#B22222);
+    color:white;
+    text-align:center;
+    padding:22px;
+    font-size:30px;
+    font-weight:600;
+}
+
+.card-body{
+    background:#fffdf8;
+}
+
+label{
+    font-weight:500;
+    color:#5a3d2b;
+}
+
+.form-control,
+.form-select{
+    border-radius:12px;
+    border:1px solid #d8c3a5;
+    padding:12px;
+}
+
+.form-control:focus,
+.form-select:focus{
+    border-color:#c97b00;
+    box-shadow:0 0 0 .2rem rgba(201,123,0,.15);
+}
+
+.btn-save{
+    background:#d97706;
+    color:white;
+    font-weight:600;
+    border-radius:12px;
+    padding:12px;
+    transition:.3s;
+}
+
+.btn-save:hover{
+    background:#b45309;
+    color:white;
+    transform:translateY(-2px);
+}
+.form-control{
+
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container py-5">
+
+    <button
+        class="btn btn-outline-warning rounded-pill mb-4"
+        onclick="history.back()">
+
+        ← Back
+
+    </button>
+
+    <div class="row justify-content-center">
+
+        <div class="col-lg-6">
+
+            <div class="card">
+
+                <div class="card-header">
+                    🍛 Add New Dish
+                </div>
+
+                <div class="card-body p-4">
+
+                    <!-- KEEP YOUR ENTIRE FORM HERE -->
+                    <form 
+
+                    action="/admin/add-food" 
+
+                method="POST"
+                enctype="multipart/form-data">
+                <div class="mb-3">
+                <label>Dish Name</label>
+                <input
+                type="text"
+                name="name"
+                class="form-control"
+                required>
+
+
+
+</div>
+
+
+
+<div class="mb-3">
+
+
+
+<label>Price (₹)</label>
+
+
+
+<input
+
+type="number"
+
+name="price"
+
+class="form-control"
+
+required>
+
+
+
+</div>
+
+
+
+<div class="mb-3">
+
+
+
+<label>Category</label>
+
+
+
+<select
+
+name="category"
+
+class="form-select"
+
+required>
+
+
+
+<option value="North Indian">North Indian</option>
+
+
+
+<option value="South Indian">South Indian</option>
+
+
+
+<option value="Street Food">Street Food</option>
+
+
+
+<option value="Snacks">Snacks</option>
+
+
+
+<option value="Desserts">Desserts</option>
+
+
+
+<option value="Beverages">Beverages</option>
+
+
+
+</select>
+
+
+
+</div>
+
+
+
+<div class="mb-4">
+
+
+
+<label>Upload Food Image</label>
+
+
+
+<input
+
+type="file"
+
+name="image"
+
+class="form-control"
+
+accept="image/*"
+
+required>
+
+
+
+</div>
+
+
+
+<button
+
+type="submit"
+
+class="btn btn-save w-100">
+
+
+
+Save Dish
+
+
+
+</button>
+
+
+
+</form>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="text-center py-4 bg-dark text-white mt-5">
+
+    <h5>🍽 Annapurna</h5>
+
+    <p class="mb-1">
+        Pure Vegetarian Food Ordering System
+    </p>
+
+    <small>
+        Made using HTML • CSS • JavaScript • Node.js • Express
+    </small>
+
+
+</footer>
+
+
+</body>
+</html>

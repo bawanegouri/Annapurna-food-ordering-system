@@ -1,0 +1,16 @@
+[
+    {
+        "id": "134f46f9-e7f1-4ed4-a9d0-024619036437",
+        "name": "rio",
+        "email": "rio@gmail.com",
+        "password": "123456",
+        "role": "customer"
+    },
+    {
+        "id": "75afc642-b702-4300-9ae4-38b101895a0b",
+        "name": "khushi",
+        "email": "khushi@gmail.com",
+        "password": "khushi123",
+        "role": "customer"
+    }
+]

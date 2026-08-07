@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Cart - Annapurna</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body style="background: linear-gradient(135deg, #fff8e7, #ffe5b4, #fff3cd); min-height: 100vh;">
+
+<div class="container py-5">
+    <h2 class="text-center fw-bold mb-4 text-warning">
+    🛒 My Shopping Cart
+    </h2>
+
+    <p class="text-center text-muted mb-5">
+        Delicious vegetarian dishes selected just for you.
+    </p>
+
+    <table class="table table-hover align-middle">
+
+        <thead>
+
+            <tr>
+                <th>Dish</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Action</th>
+            </tr>
+
+        </thead>
+
+        <tbody id="cartTable">
+
+        </tbody>
+
+    </table>
+</div>
+
+    <div class="d-flex justify-content-between align-items-center mt-4 p-3 rounded-3"
+     style="background:#fff3cd;">
+
+    <h3 id="grandTotal" class="fw-bold mb-0">
+        Total: ₹0
+    </h3>
+
+    <a href="/customer/checkout"
+       class="btn btn-warning btn-lg">
+        Proceed to Checkout →
+    </a>
+
+    </div>
+
+    </div>
+
+<div class="container mt-3">
+
+    <button
+        class="btn btn-outline-warning rounded-pill px-4"
+        onclick="history.back()">
+
+        ← Back
+
+    </button>
+
+</div>
+<footer class="text-center py-4 mt-5 bg-dark text-white">
+
+    <h5>
+        🍽 Annapurna
+    </h5>
+
+    <p class="mb-1">
+        Pure Vegetarian Food Ordering System
+    </p>
+
+
+    <small>
+        © 2026 Annapurna
+    </small>
+
+</footer>
+<script src="/js/cart.js"></script>
+
+</body>
+</html>
