@@ -1,58 +1,206 @@
-fetch("/orders")
-.then(res => res.json())
-.then(orders => {
+// ===============================
+// Load Customer Orders
+// ===============================
 
-    const table = document.getElementById("ordersTable");
+fetch("/admin/orders")
+    .then(response => {
 
-    table.innerHTML = "";
+        if (!response.ok) {
+            throw new Error("Failed to load orders");
+        }
 
-    if (orders.length === 0) {
+        return response.json();
+    })
 
-        table.innerHTML = `
-        <tr>
-            <td colspan="7" class="text-center">
-                No Orders Found
-            </td>
-        </tr>
-        `;
+    .then(orders => {
 
-        return;
-    }
+        const table =
+            document.getElementById("ordersTable");
 
-    orders.forEach(order => {
+        table.innerHTML = "";
 
-        table.innerHTML += `
-        <tr>
+        // No orders
+        if (!orders || orders.length === 0) {
 
-            <td>#${String(order.id).slice(-6)}</td>
+            table.innerHTML = `
+                <tr>
+                    <td colspan="7"
+                        class="text-muted py-4">
 
-            <td>${order.name}</td>
+                        No orders found.
 
-            <td>${order.phone}</td>
+                    </td>
+                </tr>
+            `;
 
-            <td>${order.address}</td>
+            return;
+        }
 
-            <td>₹${order.total}</td>
 
-            <td>
-                <span class="badge ${
-                order.status==="Placed"
-                ? "bg-warning text-dark"
-                : order.status==="Preparing"
-                ? "bg-primary"
-                : "bg-success"
-                }">
-                    ${order.status}
-                </span>
-            </td>
+        // Display orders
+        orders.forEach(order => {
 
-            <td>
-                ${order.items.map(item => item.name).join(", ")}
-            </td>
+            // ===============================
+            // Customer Name
+            // ===============================
 
-        </tr>
+            const customerName =
+                order.customerName ||
+                order.name ||
+                "Unknown Customer";
+
+
+            // ===============================
+            // Phone
+            // ===============================
+
+            const phone =
+                order.phone ||
+                "-";
+
+
+            // ===============================
+            // Address
+            // ===============================
+
+            const address =
+                order.deliveryAddress ||
+                order.address ||
+                "-";
+
+
+            // ===============================
+            // Total
+            // ===============================
+
+            const total =
+                Number(order.total || 0);
+
+
+            // ===============================
+            // Status
+            // ===============================
+
+            const status =
+                order.status ||
+                "Placed";
+
+
+            // ===============================
+            // Items
+            // ===============================
+
+            let itemsText = "-";
+
+            if (
+                Array.isArray(order.items) &&
+                order.items.length > 0
+            ) {
+
+                itemsText =
+                    order.items
+                        .map(item => {
+
+                            const name =
+                                item.name ||
+                                "Unknown Item";
+
+                            const quantity =
+                                item.quantity ||
+                                1;
+
+                            return `${name} × ${quantity}`;
+
+                        })
+                        .join(", ");
+            }
+
+
+            // ===============================
+            // Order ID
+            // ===============================
+
+            const orderId =
+                order.id ||
+                "N/A";
+
+
+            // ===============================
+            // Create Row
+            // ===============================
+
+            const row =
+                document.createElement("tr");
+
+
+            row.innerHTML = `
+
+                <td>
+                    #${orderId}
+                </td>
+
+                <td>
+                    ${customerName}
+                </td>
+
+                <td>
+                    ${phone}
+                </td>
+
+                <td>
+                    ${address}
+                </td>
+
+                <td>
+                    ₹${total}
+                </td>
+
+                <td>
+
+                    <span class="status">
+
+                        ${status}
+
+                    </span>
+
+                </td>
+
+                <td>
+                    ${itemsText}
+                </td>
+
+            `;
+
+
+            table.appendChild(row);
+
+        });
+
+    })
+
+    .catch(error => {
+
+        console.error(
+            "Error loading orders:",
+            error
+        );
+
+
+        document.getElementById(
+            "ordersTable"
+        ).innerHTML = `
+
+            <tr>
+
+                <td colspan="7"
+                    class="text-danger py-4">
+
+                    Unable to load orders.
+
+                </td>
+
+            </tr>
+
         `;
 
     });
-
-});

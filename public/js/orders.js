@@ -52,7 +52,7 @@ function loadOrders() {
 
                         <td>${order.id}</td>
 
-                        <td>${order.name}</td>
+                        <td>${order.customerName}</td>
 
                         <td>₹${order.total}</td>
 

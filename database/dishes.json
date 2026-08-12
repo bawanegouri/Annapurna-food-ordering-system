@@ -7,13 +7,6 @@
         "image": "/images/1785860976100-Dhokla à¤¢à¥à¤à¤³à¤¾.jpg"
     },
     {
-        "id": 1785860995423,
-        "name": "Iced Americano ",
-        "price": 120,
-        "category": "Beverages",
-        "image": "/images/1785860995415-icedamericano.jpg"
-    },
-    {
         "id": 1785861050127,
         "name": "Masala Dosa",
         "price": 140,
@@ -54,5 +47,122 @@
         "price": 200,
         "category": "North Indian",
         "image": "/images/1785861374082-butter_paneer.jpg"
+    },
+    {
+        "id": 1786091800888,
+        "name": "Idli",
+        "price": 90,
+        "category": "South Indian",
+        "image": "/images/1786091800869-Soft & Fluffy Idly.jpg"
+    },
+    {
+        "id": 1786387364721,
+        "name": "Daal Chawal",
+        "price": 120,
+        "category": "North Indian",
+        "type": "food",
+        "originalPrice": 0,
+        "discount": 0,
+        "offer": "",
+        "image": "/images/1786387364712-daal_chawal.jpg"
+    },
+    {
+        "id": 1786387872804,
+        "name": "Kanda Bhaji",
+        "price": 40,
+        "category": "Snacks",
+        "type": "food",
+        "originalPrice": 0,
+        "discount": 0,
+        "offer": "",
+        "image": "/images/1786387872795-Onion Pakoda (Kanda Bhaji).jpg"
+    },
+    {
+        "id": 1786387960534,
+        "name": "Ice cream",
+        "price": 50,
+        "category": "Desserts",
+        "type": "food",
+        "originalPrice": 0,
+        "discount": 0,
+        "offer": "",
+        "image": "/images/1786387960529-68746443554.jpg"
+    },
+    {
+        "id": 1786388028132,
+        "name": "Aloo Paratha",
+        "price": 75,
+        "category": "North Indian",
+        "type": "food",
+        "originalPrice": 0,
+        "discount": 0,
+        "offer": "",
+        "image": "/images/1786388028126-aloo_paratha.jpg"
+    },
+    {
+        "id": 1786390871787,
+        "name": "Party Meal Pack",
+        "price": 350,
+        "category": "Combo",
+        "type": "combo",
+        "originalPrice": 399,
+        "discount": 50,
+        "offer": "free rashgulla",
+        "image": "/images/1786390871779-download (5).jpg"
+    },
+    {
+        "id": 1786433972580,
+        "name": "Kids meal",
+        "price": 120,
+        "category": "Kids",
+        "type": "combo",
+        "originalPrice": 199,
+        "discount": 25,
+        "offer": "Free Orange Juice",
+        "image": "/images/1786433972564-Palak Chapati + Jeera Aloo + Orange.jpg"
+    },
+    {
+        "id": 1786434109622,
+        "name": "Birthday Meal",
+        "price": 450,
+        "category": "Combo",
+        "type": "combo",
+        "originalPrice": 500,
+        "discount": 50,
+        "offer": "Free 2 Ice Creams",
+        "image": "/images/1786434109611-645844402818477833.jpg"
+    },
+    {
+        "id": 1786434607740,
+        "name": "Healthy Meal🥗",
+        "price": 120,
+        "category": "Healthy",
+        "type": "combo",
+        "originalPrice": 190,
+        "discount": 30,
+        "offer": "Free Beetroot juice",
+        "image": "/images/1786434607731-47850814786375555.jpg"
+    },
+    {
+        "id": 1786439047194,
+        "name": "Breakfast Meal☕🍞",
+        "price": 120,
+        "category": "Breakfast",
+        "type": "combo",
+        "originalPrice": 190,
+        "discount": 30,
+        "offer": "Free Fruits Bowl🍉🍓",
+        "image": "/images/1786439047170-645844402837272011.jpg"
+    },
+    {
+        "id": 1786439301026,
+        "name": "Family Dinner Meal",
+        "price": 300,
+        "category": "Family",
+        "type": "combo",
+        "originalPrice": 380,
+        "discount": 50,
+        "offer": "Free Rasmalai🍮",
+        "image": "/images/1786439301013-Indian Dinner Party Menu (Vegetarian).jpg"
     }
 ]

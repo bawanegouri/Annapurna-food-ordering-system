@@ -205,3 +205,29 @@ html{
 section{
     overflow:hidden;
 }
+/* =========================
+   Special Combo Card
+========================= */
+
+.combo-card {
+    border: 3px solid #ffb300 !important;
+
+    box-shadow:
+        0 8px 25px rgba(255, 179, 0, 0.35) !important;
+
+    transform: translateY(-2px);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.combo-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 14px 30px rgba(255, 179, 0, 0.45) !important;
+
+}

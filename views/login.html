@@ -7,6 +7,8 @@
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
 <body class="bg-light">
 
@@ -29,23 +31,92 @@
                             <input
                                 type="email"
                                 class="form-control"
+                                id="email"
                                 name="email"
+                                placeholder="Enter your email"
                                 required>
+
+                            <div
+                            id="emailError"
+                            class="text-danger mt-1"
+                            style="display:none;">
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label>Password</label>
-                            <input
-                                type="password"
-                                class="form-control"
-                                name="password"
-                                required>
-                        </div>
+    <div class="mb-3">
 
+    <label for="password" class="form-label">
+        Password
+    </label>
+
+    <div class="input-group">
+
+        <input
+            type="password"
+            class="form-control"
+            id="password"
+            name="password"
+            placeholder="Enter your password"
+            required>
+
+        <button
+            type="button"
+            class="btn btn-outline-secondary"
+            onclick="togglePassword('password', 'passwordIcon')">
+
+            <i
+                class="bi bi-eye"
+                id="passwordIcon">
+            </i>
+
+        </button>
+
+    </div>
+
+</div>
                         <button class="btn btn-warning w-100">
                             Login
                         </button>
+                        
+<script>
 
+document.querySelector("form").addEventListener("submit", function (event) {
+
+    const email =
+        document.getElementById("email").value.trim();
+
+    const emailError =
+        document.getElementById("emailError");
+
+    const emailPattern =
+        /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.com$/;
+
+
+    if (!emailPattern.test(email)) {
+
+        event.preventDefault();
+
+        emailError.innerText =
+            "Please enter a valid email ending with .com";
+
+        emailError.style.display =
+            "block";
+
+        document
+            .getElementById("email")
+            .focus();
+
+        return;
+
+    }
+
+
+    emailError.style.display =
+        "none";
+
+});
+
+</script>
                     </form>
 
                     <div class="text-center mt-3">
@@ -90,6 +161,81 @@
     </small>
 
 </footer>
+<script>
 
+function togglePassword(inputId, iconId) {
+
+    const passwordInput =
+        document.getElementById(inputId);
+
+    const icon =
+        document.getElementById(iconId);
+
+
+    if (passwordInput.type === "password") {
+
+        passwordInput.type = "text";
+
+        icon.classList.remove("bi-eye");
+
+        icon.classList.add("bi-eye-slash");
+
+    } else {
+
+        passwordInput.type = "password";
+
+        icon.classList.remove("bi-eye-slash");
+
+        icon.classList.add("bi-eye");
+
+    }
+
+}
+
+
+document
+    .querySelector("form")
+    .addEventListener("submit", function(event) {
+
+        const email =
+            document
+                .getElementById("email")
+                .value
+                .trim();
+
+
+        const emailError =
+            document.getElementById("emailError");
+
+
+        const emailPattern =
+            /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.com$/;
+
+
+        if (!emailPattern.test(email)) {
+
+            event.preventDefault();
+
+            emailError.innerText =
+                "Please enter a valid email ending with .com";
+
+            emailError.style.display =
+                "block";
+
+            document
+                .getElementById("email")
+                .focus();
+
+            return;
+
+        }
+
+
+        emailError.style.display =
+            "none";
+
+    });
+
+</script>
 </body>
 </html>

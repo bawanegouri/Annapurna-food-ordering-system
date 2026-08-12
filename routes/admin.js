@@ -5,19 +5,28 @@ const multer = require("multer");
 
 const { readData, writeData } = require("../utils/database");
 
-
-// ==========================
-// Multer Configuration
-// ==========================
+// =====================================================
+// MULTER CONFIGURATION
+// =====================================================
 
 const storage = multer.diskStorage({
 
     destination: function (req, file, cb) {
-        cb(null, path.join(__dirname, "../public/images"));
+
+        cb(
+            null,
+            path.join(__dirname, "../public/images")
+        );
+
     },
 
     filename: function (req, file, cb) {
-        cb(null, Date.now() + "-" + file.originalname);
+
+        cb(
+            null,
+            Date.now() + "-" + file.originalname
+        );
+
     }
 
 });
@@ -27,71 +36,142 @@ const upload = multer({
 });
 
 
-// ==========================
-// Admin Dashboard
-// ==========================
+// =====================================================
+// ADMIN DASHBOARD
+// =====================================================
 
 router.get("/admin/dashboard", (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, "../views/admin/dashboard.html")
+        path.join(
+            __dirname,
+            "../views/admin/dashboard.html"
+        )
     );
+
 });
 
 
-// ==========================
-// Add Food Page
-// ==========================
+// =====================================================
+// ADD FOOD PAGE
+// =====================================================
 
 router.get("/admin/add-food", (req, res) => {
+
     res.sendFile(
-        path.join(__dirname, "../views/admin/add-food.html")
+        path.join(
+            __dirname,
+            "../views/admin/add-food.html"
+        )
     );
+
 });
 
 
-// ==========================
-// Save Food
-// ==========================
+// =====================================================
+// SAVE NEW FOOD
+// =====================================================
 
 router.post(
     "/admin/add-food",
     upload.single("image"),
     (req, res) => {
-        console.log(req.body);
-        console.log(req.file);
+
+        console.log("FORM DATA:", req.body);
+        console.log("IMAGE:", req.file);
+
         try {
 
-            const { name, price, category } = req.body;
+            const {
+                name,
+                price,
+                category,
+                type,
+                originalPrice,
+                discount,
+                offer
+            } = req.body;
+
 
             let dishes = readData("dishes.json");
+
 
             const newDish = {
 
                 id: Date.now(),
 
-                name: name,
+                name:
+                    name
+                        ? name.trim()
+                        : "",
 
-                price: Number(price),
+                price:
+                    Number(price) || 0,
 
-                category: category,
+                category:
+                    category || "Other",
 
-                image: req.file
-                    ? "/images/" + req.file.filename
-                    : ""
+                // Regular food or combo
+                type:
+                    type || "food",
+
+                // Original price for combo
+                originalPrice:
+                    originalPrice
+                        ? Number(originalPrice)
+                        : 0,
+
+                // Discount
+                discount:
+                    discount
+                        ? Number(discount)
+                        : 0,
+
+                // Special offer
+                offer:
+                    offer
+                        ? offer.trim()
+                        : "",
+
+                // Uploaded image
+                image:
+                    req.file
+                        ? "/images/" + req.file.filename
+                        : ""
 
             };
 
+
             dishes.push(newDish);
 
-            writeData("dishes.json", dishes);
 
-            res.redirect("/admin/dashboard");
+            writeData(
+                "dishes.json",
+                dishes
+            );
+
+
+            console.log(
+                "New dish saved:",
+                newDish
+            );
+
+
+            res.redirect(
+                "/admin/dashboard"
+            );
+
 
         } catch (error) {
 
-            console.log(error);
+            console.error(
+                "Error while adding food:",
+                error
+            );
 
-            res.status(500).send("Error while adding food.");
+            res.status(500).send(
+                "Error while adding food."
+            );
 
         }
 
@@ -99,114 +179,404 @@ router.post(
 );
 
 
-// ==========================
-// View Orders
-// ==========================
+// =====================================================
+// VIEW ORDERS PAGE
+// =====================================================
 
 router.get("/admin/view-orders", (req, res) => {
-    res.sendFile(
-        path.join(__dirname, "../views/admin/view-orders.html")
-    );
-});
-
-
-// ==========================
-// Edit Food Page
-// ==========================
-
-router.get("/admin/edit-food/:id", (req, res) => {
-
-    const id = Number(req.params.id);
-
-    const dishes = readData("dishes.json");
-
-    const dish = dishes.find(d => d.id === id);
-
-    if (!dish) {
-        return res.send("Dish not found");
-    }
 
     res.sendFile(
-        path.join(__dirname, "../views/admin/edit-food.html")
+        path.join(
+            __dirname,
+            "../views/admin/view-orders.html"
+        )
     );
 
 });
 
-// ==========================
-// Manage Food Page
-// ==========================
 
-router.get("/admin/manage-food", (req, res) => {
-    res.sendFile(
-        path.join(__dirname, "../views/admin/manage-food.html")
-    );
-});
+// =====================================================
+// ADMIN ORDERS API
+// =====================================================
 
-// ==========================
-// Delete Food
-// ==========================
+router.get("/admin/orders", (req, res) => {
 
-router.delete("/admin/delete-food/:id", (req, res) => {
+    try {
 
-    const id = Number(req.params.id);
+        const orders = readData("orders.json");
 
-    let dishes = readData("dishes.json");
 
-    dishes = dishes.filter(dish => dish.id !== id);
+        /*
+         * Convert the order data into a clean format
+         * for the admin page.
+         *
+         * Your customer order uses:
+         *
+         * customerName
+         * phone
+         * deliveryAddress
+         * total
+         * status
+         * items
+         */
 
-    writeData("dishes.json", dishes);
+        const formattedOrders = orders.map(order => {
 
-    res.json({
-        success: true
-    });
+            return {
 
-});
+                id:
+                    order.id || Date.now(),
 
-// ==========================
-// Get Single Dish
-// ==========================
+                customerName:
+                    order.customerName ||
+                    order.name ||
+                    "Unknown Customer",
 
-router.get("/api/dish/:id", (req, res) => {
+                phone:
+                    order.phone ||
+                    "Not provided",
 
-    const id = Number(req.params.id);
+                address:
+                    order.deliveryAddress ||
+                    order.address ||
+                    "Not provided",
 
-    const dishes = readData("dishes.json");
+                total:
+                    Number(order.total) || 0,
 
-    const dish = dishes.find(d => d.id === id);
+                status:
+                    order.status ||
+                    "Placed",
 
-    if (!dish) {
-        return res.status(404).json({
-            message: "Dish not found"
+                items:
+                    Array.isArray(order.items)
+                        ? order.items
+                        : []
+
+            };
+
         });
-    }
 
-    res.json(dish);
+
+        res.json(formattedOrders);
+
+
+    } catch (error) {
+
+        console.error(
+            "Error loading admin orders:",
+            error
+        );
+
+        res.status(500).json({
+
+            message:
+                "Unable to load orders"
+
+        });
+
+    }
 
 });
 
-// ==========================
-// Update Food
-// ==========================
 
-router.post("/admin/update-food/:id", (req, res) => {
+// =====================================================
+// EDIT FOOD PAGE
+// =====================================================
 
-    const id = Number(req.params.id);
+router.get(
+    "/admin/edit-food/:id",
+    (req, res) => {
 
-    let dishes = readData("dishes.json");
+        const id =
+            Number(req.params.id);
 
-    const index = dishes.findIndex(d => d.id === id);
 
-    if (index === -1) {
-        return res.send("Dish not found");
+        const dishes =
+            readData("dishes.json");
+
+
+        const dish =
+            dishes.find(
+                d => d.id === id
+            );
+
+
+        if (!dish) {
+
+            return res.status(404).send(
+                "Dish not found"
+            );
+
+        }
+
+
+        res.sendFile(
+            path.join(
+                __dirname,
+                "../views/admin/edit-food.html"
+            )
+        );
+
     }
+);
 
-    dishes[index].name = req.body.name;
-    dishes[index].price = Number(req.body.price);
-    dishes[index].category = req.body.category;
 
-    writeData("dishes.json", dishes);
+// =====================================================
+// MANAGE FOOD PAGE
+// =====================================================
 
-    res.redirect("/admin/manage-food");
+router.get(
+    "/admin/manage-food",
+    (req, res) => {
 
-});
+        res.sendFile(
+            path.join(
+                __dirname,
+                "../views/admin/manage-food.html"
+            )
+        );
+
+    }
+);
+
+
+// =====================================================
+// DELETE FOOD
+// =====================================================
+
+router.delete(
+    "/admin/delete-food/:id",
+    (req, res) => {
+
+        try {
+
+            const id =
+                Number(req.params.id);
+
+
+            let dishes =
+                readData("dishes.json");
+
+
+            const oldLength =
+                dishes.length;
+
+
+            dishes =
+                dishes.filter(
+                    dish =>
+                        dish.id !== id
+                );
+
+
+            if (dishes.length === oldLength) {
+
+                return res.status(404).json({
+
+                    success: false,
+
+                    message:
+                        "Dish not found"
+
+                });
+
+            }
+
+
+            writeData(
+                "dishes.json",
+                dishes
+            );
+
+
+            res.json({
+
+                success: true,
+
+                message:
+                    "Dish deleted successfully"
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Delete food error:",
+                error
+            );
+
+
+            res.status(500).json({
+
+                success: false,
+
+                message:
+                    "Unable to delete dish"
+
+            });
+
+        }
+
+    }
+);
+
+
+// =====================================================
+// GET SINGLE DISH
+// =====================================================
+
+router.get(
+    "/api/dish/:id",
+    (req, res) => {
+
+        const id =
+            Number(req.params.id);
+
+
+        const dishes =
+            readData("dishes.json");
+
+
+        const dish =
+            dishes.find(
+                d => d.id === id
+            );
+
+
+        if (!dish) {
+
+            return res.status(404).json({
+
+                message:
+                    "Dish not found"
+
+            });
+
+        }
+
+
+        res.json(dish);
+
+    }
+);
+
+
+// =====================================================
+// UPDATE FOOD
+// =====================================================
+
+router.post(
+    "/admin/update-food/:id",
+    (req, res) => {
+
+        try {
+
+            const id =
+                Number(req.params.id);
+
+
+            let dishes =
+                readData("dishes.json");
+
+
+            const index =
+                dishes.findIndex(
+                    d => d.id === id
+                );
+
+
+            if (index === -1) {
+
+                return res.status(404).send(
+                    "Dish not found"
+                );
+
+            }
+
+
+            // Basic information
+
+            dishes[index].name =
+                req.body.name
+                    ? req.body.name.trim()
+                    : dishes[index].name;
+
+
+            dishes[index].price =
+                Number(req.body.price) ||
+                0;
+
+
+            dishes[index].category =
+                req.body.category ||
+                dishes[index].category;
+
+
+            // Combo information
+
+            dishes[index].type =
+                req.body.type ||
+                dishes[index].type ||
+                "food";
+
+
+            dishes[index].originalPrice =
+                req.body.originalPrice
+                    ? Number(req.body.originalPrice)
+                    : 0;
+
+
+            dishes[index].discount =
+                req.body.discount
+                    ? Number(req.body.discount)
+                    : 0;
+
+
+            dishes[index].offer =
+                req.body.offer
+                    ? req.body.offer.trim()
+                    : "";
+
+
+            writeData(
+                "dishes.json",
+                dishes
+            );
+
+
+            console.log(
+                "Dish updated:",
+                dishes[index]
+            );
+
+
+            res.redirect(
+                "/admin/manage-food"
+            );
+
+
+        } catch (error) {
+
+            console.error(
+                "Update food error:",
+                error
+            );
+
+
+            res.status(500).send(
+                "Error while updating food."
+            );
+
+        }
+
+    }
+);
+
+
+// =====================================================
+// EXPORT ROUTER
+// =====================================================
+
 module.exports = router;

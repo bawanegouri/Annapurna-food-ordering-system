@@ -3,260 +3,1304 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Manage Food | Annapurna</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Manage Food | Annapurna</title>
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Bootstrap -->
 
-<style>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+        rel="stylesheet">
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
-}
 
-body{
+    <!-- Google Font -->
 
-background:linear-gradient(135deg,#fff7e6,#ffe8cc,#ffd6a5);
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-min-height:100vh;
 
-}
+    <style>
 
-.header{
+        * {
+            box-sizing: border-box;
+        }
 
-background:#8B4513;
 
-color:white;
+        body {
 
-padding:25px;
+            margin: 0;
 
-text-align:center;
+            font-family: "Poppins", sans-serif;
 
-box-shadow:0 5px 20px rgba(0,0,0,.2);
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff8e7,
+                    #ffe5bd
+                );
 
-}
+            min-height: 100vh;
 
-.header h1{
+            color: #292929;
 
-font-weight:700;
+        }
 
-}
 
-.top-buttons{
+        /* =========================
+           NAVBAR
+        ========================= */
 
-display:flex;
+        .admin-navbar {
 
-justify-content:center;
+            background: #ffffff;
 
-gap:15px;
+            border-bottom:
+                3px solid #f4a900;
 
-margin:35px 0;
+            box-shadow:
+                0 4px 18px rgba(0,0,0,0.08);
 
-}
+            padding: 15px 0;
 
-.btn-orange{
+        }
 
-background:#d97706;
 
-color:white;
+        .brand {
 
-border:none;
+            text-decoration: none;
 
-padding:12px 28px;
+            font-size: 28px;
 
-border-radius:12px;
+            font-weight: 800;
 
-font-weight:600;
+            color: #171717;
 
-}
+        }
 
-.btn-orange:hover{
 
-background:#b45309;
+        .brand span {
 
-color:white;
+            color: #f2a900;
 
-}
+        }
 
-.btn-brown{
 
-background:#5d4037;
+        .dashboard-btn {
 
-color:white;
+            border: 2px solid #f2a900;
 
-border:none;
+            color: #b87500;
 
-padding:12px 28px;
+            background: transparent;
 
-border-radius:12px;
+            border-radius: 30px;
 
-font-weight:600;
+            padding: 8px 20px;
 
-}
+            font-weight: 600;
 
-.btn-brown:hover{
+            transition: 0.25s;
 
-background:#3e2723;
+        }
 
-color:white;
 
-}
+        .dashboard-btn:hover {
 
-.food-card{
+            background: #f2a900;
 
-background:white;
+            color: white;
 
-border:none;
+        }
 
-border-radius:20px;
 
-overflow:hidden;
+        /* =========================
+           MAIN
+        ========================= */
 
-box-shadow:0 10px 25px rgba(0,0,0,.12);
+        .main-container {
 
-transition:.3s;
+            max-width: 1250px;
 
-}
+            margin: auto;
 
-.food-card:hover{
+            padding: 45px 20px 70px;
 
-transform:translateY(-8px);
+        }
 
-box-shadow:0 18px 35px rgba(0,0,0,.18);
 
-}
+        .back-btn {
 
-.food-card img{
+            border: 2px solid #d99200;
 
-height:250px;
+            color: #a86600;
 
-width:100%;
+            background: white;
 
-object-fit: cover;
+            border-radius: 30px;
 
-}
+            padding: 9px 20px;
 
-.card-body{
+            font-weight: 600;
 
-text-align:center;
+            margin-bottom: 30px;
 
-}
+            transition: 0.25s;
 
-.category{
+        }
 
-background:#fff3cd;
 
-display:inline-block;
+        .back-btn:hover {
 
-padding:6px 14px;
+            background: #d99200;
 
-border-radius:20px;
+            color: white;
 
-font-size:14px;
+            transform: translateX(-3px);
 
-margin-bottom:10px;
+        }
 
-}
 
-.price{
+        /* =========================
+           PAGE HEADER
+        ========================= */
 
-font-size:22px;
+        .page-header {
 
-font-weight:700;
+            text-align: center;
 
-color:#198754;
+            margin-bottom: 45px;
 
-}
+        }
 
-.delete-btn{
 
-width:100%;
+        .page-header .icon {
 
-margin-top:15px;
+            font-size: 52px;
 
-}
+            margin-bottom: 5px;
 
-</style>
+        }
+
+
+        .page-header h1 {
+
+            font-size: 38px;
+
+            font-weight: 800;
+
+            margin: 0;
+
+            color: #252525;
+
+        }
+
+
+        .page-header h1 span {
+
+            color: #efa900;
+
+        }
+
+
+        .page-header p {
+
+            color: #777;
+
+            margin-top: 8px;
+
+            font-size: 16px;
+
+        }
+
+
+        /* =========================
+           FOOD GRID
+        ========================= */
+
+        #foodContainer {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(290px, 1fr)
+                );
+
+            gap: 28px;
+
+        }
+
+
+        /* =========================
+           FOOD CARD
+        ========================= */
+
+        .food-card {
+
+            background: white;
+
+            border-radius: 22px;
+
+            overflow: hidden;
+
+            position: relative;
+
+            box-shadow:
+                0 10px 30px
+                rgba(80,50,10,0.12);
+
+            transition:
+                transform 0.25s,
+                box-shadow 0.25s;
+
+            border: 1px solid #f1e1c3;
+
+        }
+
+
+        .food-card:hover {
+
+            transform: translateY(-7px);
+
+            box-shadow:
+                0 18px 40px
+                rgba(80,50,10,0.18);
+
+        }
+
+
+        /* =========================
+           COMBO CARD
+        ========================= */
+
+        .combo-card {
+
+            border:
+                3px solid #f4a900;
+
+            box-shadow:
+                0 12px 35px
+                rgba(244,169,0,0.25);
+
+        }
+
+
+        .combo-card:hover {
+
+            box-shadow:
+                0 20px 45px
+                rgba(244,169,0,0.35);
+
+        }
+
+
+        .combo-ribbon {
+
+            position: absolute;
+
+            top: 15px;
+
+            left: 15px;
+
+            z-index: 5;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #ff9800,
+                    #e65100
+                );
+
+            color: white;
+
+            padding: 7px 13px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            box-shadow:
+                0 4px 12px
+                rgba(0,0,0,0.18);
+
+        }
+
+
+        /* =========================
+           IMAGE
+        ========================= */
+
+        .food-image {
+
+            width: 100%;
+
+            height: 220px;
+
+            object-fit: cover;
+
+            display: block;
+
+        }
+
+
+        /* =========================
+           CARD BODY
+        ========================= */
+
+        .food-body {
+
+            padding: 22px;
+
+            text-align: center;
+
+        }
+
+
+        .food-name {
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+            color: #202020;
+
+        }
+
+
+        .category-badge {
+
+            display: inline-block;
+
+            background: #fff2c9;
+
+            color: #8b6500;
+
+            padding: 5px 13px;
+
+            border-radius: 20px;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            margin-bottom: 14px;
+
+        }
+
+
+        /* =========================
+           PRICE
+        ========================= */
+
+        .price-area {
+
+            margin: 8px 0 12px;
+
+        }
+
+
+        .old-price {
+
+            color: #999;
+
+            text-decoration: line-through;
+
+            font-size: 15px;
+
+            margin-right: 8px;
+
+        }
+
+
+        .current-price {
+
+            color: #138a4b;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+        }
+
+
+        .regular-price {
+
+            color: #138a4b;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+        }
+
+
+        /* =========================
+           DISCOUNT
+        ========================= */
+
+        .discount-badge {
+
+            display: inline-block;
+
+            background: #198754;
+
+            color: white;
+
+            padding: 5px 12px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        /* =========================
+           OFFER
+        ========================= */
+
+        .offer-box {
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff4c4,
+                    #ffe69a
+                );
+
+            border: 1px solid #f1c84b;
+
+            border-radius: 13px;
+
+            padding: 12px;
+
+            margin-top: 12px;
+
+            color: #694f00;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+        }
+
+
+        .offer-box .offer-title {
+
+            font-size: 12px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.5px;
+
+            color: #a06b00;
+
+            margin-bottom: 3px;
+
+        }
+
+
+        /* =========================
+           TYPE
+        ========================= */
+
+        .type-label {
+
+            font-size: 12px;
+
+            color: #777;
+
+            margin-top: 12px;
+
+        }
+
+
+        /* =========================
+           DELETE BUTTON
+        ========================= */
+
+        .delete-btn {
+
+            width: 100%;
+
+            border: none;
+
+            background: #dc3545;
+
+            color: white;
+
+            padding: 11px;
+
+            border-radius: 12px;
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            margin-top: 16px;
+
+            transition: 0.25s;
+
+        }
+
+
+        .delete-btn:hover {
+
+            background: #bb2d3b;
+
+            transform: translateY(-2px);
+
+        }
+
+
+        /* =========================
+           EMPTY / LOADING
+        ========================= */
+
+        .loading-box {
+
+            grid-column: 1 / -1;
+
+            text-align: center;
+
+            background: white;
+
+            border-radius: 20px;
+
+            padding: 50px;
+
+            box-shadow:
+                0 10px 30px
+                rgba(0,0,0,0.08);
+
+        }
+
+
+        .empty-icon {
+
+            font-size: 50px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+
+            background: #21180b;
+
+            color: #ffffff;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            margin-top: 20px;
+
+        }
+
+
+        footer h5 {
+
+            color: #f5b000;
+
+            font-size: 22px;
+
+            font-weight: 700;
+
+            margin-bottom: 8px;
+
+        }
+
+
+        footer p {
+
+            color: #ddd;
+
+            margin-bottom: 5px;
+
+        }
+
+
+        footer small {
+
+            color: #aaa;
+
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 576px) {
+
+            .page-header h1 {
+
+                font-size: 30px;
+
+            }
+
+
+            .page-header .icon {
+
+                font-size: 42px;
+
+            }
+
+
+            .main-container {
+
+                padding-top: 30px;
+
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="header">
 
-<h1>🍽 Annapurna Admin</h1>
+<!-- =========================
+     NAVBAR
+========================= -->
 
-<p>Manage all dishes served in your restaurant</p>
+<nav class="admin-navbar">
 
-</div>
+    <div
+        class="container d-flex align-items-center">
 
-<div class="container">
+        <a
+            href="/admin/dashboard"
+            class="brand">
 
-<div class="top-buttons">
+            🍽 Annap<span>urna</span>
 
-<a href="/admin/add-food" class="btn btn-orange">
+        </a>
 
-<i class="fa-solid fa-plus"></i>
 
-Add New Dish
+        <div class="ms-auto">
 
-</a>
+            <a
+                href="/admin/dashboard"
+                class="dashboard-btn">
 
-<a href="/admin/dashboard" class="btn btn-brown">
+                📊 Dashboard
 
-<i class="fa-solid fa-house"></i>
+            </a>
 
-Dashboard
+        </div>
 
-</a>
+    </div>
 
-</div>
+</nav>
 
-<div class="row" id="foodContainer">
 
-</div>
 
-</div>
+<!-- =========================
+     MAIN
+========================= -->
 
-<div class="container mt-3">
+<main class="main-container">
+
 
     <button
-        class="btn btn-outline-warning rounded-pill px-4"
+        class="back-btn"
         onclick="history.back()">
 
         ← Back
 
     </button>
 
-</div>
 
-<script src="/js/manage-food.js"></script>
 
-<footer class="text-center py-4 mt-5 bg-dark text-white">
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div class="icon">
+            🍛
+        </div>
+
+        <h1>
+            Manage <span>Food</span>
+        </h1>
+
+        <p>
+            View, manage and remove dishes from the Annapurna menu.
+        </p>
+
+    </div>
+
+
+
+    <!-- FOOD CONTAINER -->
+
+    <div id="foodContainer">
+
+        <div class="loading-box">
+
+            <div class="spinner-border text-warning mb-3">
+            </div>
+
+            <h5>
+                Loading dishes...
+            </h5>
+
+            <p class="text-muted mb-0">
+                Please wait.
+            </p>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
 
     <h5>
         🍽 Annapurna
     </h5>
 
-    <p class="mb-1">
+    <p>
         Pure Vegetarian Food Ordering System
     </p>
 
+    <small>
+        Made using HTML • CSS • JavaScript • Node.js • Express
+    </small>
+
+    <br>
 
     <small>
         © 2026 Annapurna
     </small>
 
 </footer>
+
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+
+// =================================
+// LOAD DISHES
+// =================================
+
+fetch("/api/menu")
+
+    .then(response => {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Failed to load dishes"
+            );
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        displayDishes(data);
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+        document.getElementById(
+            "foodContainer"
+        ).innerHTML = `
+
+            <div class="loading-box">
+
+                <div class="empty-icon">
+                    ⚠️
+                </div>
+
+                <h4>
+                    Unable to load dishes
+                </h4>
+
+                <p class="text-muted">
+                    Please check your server and try again.
+                </p>
+
+            </div>
+
+        `;
+
+    });
+
+
+
+// =================================
+// DISPLAY DISHES
+// =================================
+
+function displayDishes(dishes) {
+
+    const container =
+        document.getElementById(
+            "foodContainer"
+        );
+
+
+    container.innerHTML = "";
+
+
+    if (!dishes || dishes.length === 0) {
+
+        container.innerHTML = `
+
+            <div class="loading-box">
+
+                <div class="empty-icon">
+                    🍽️
+                </div>
+
+                <h4>
+                    No dishes available
+                </h4>
+
+                <p class="text-muted">
+                    Add a new dish from the admin panel.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    dishes.forEach(dish => {
+
+
+        // =================================
+        // CHECK COMBO
+        // =================================
+
+        const isCombo =
+            String(dish.type || "").toLowerCase()
+            === "combo";
+
+
+
+        // =================================
+        // COMBO RIBBON
+        // =================================
+
+        const comboRibbon =
+            isCombo
+
+            ? `
+
+                <div class="combo-ribbon">
+
+                    ⭐ SPECIAL COMBO
+
+                </div>
+
+            `
+
+            : "";
+
+
+
+        // =================================
+        // PRICE
+        // =================================
+
+        let priceHTML = "";
+
+
+        const originalPrice =
+            Number(dish.originalPrice || 0);
+
+        const currentPrice =
+            Number(dish.price || 0);
+
+
+        if (
+            isCombo &&
+            originalPrice > currentPrice
+        ) {
+
+            priceHTML = `
+
+                <div class="price-area">
+
+                    <span class="old-price">
+
+                        ₹${originalPrice}
+
+                    </span>
+
+                    <span class="current-price">
+
+                        ₹${currentPrice}
+
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+        else {
+
+            priceHTML = `
+
+                <div class="price-area">
+
+                    <span class="regular-price">
+
+                        ₹${currentPrice}
+
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        // =================================
+        // DISCOUNT
+        // =================================
+
+        let discountHTML = "";
+
+
+        if (
+            dish.discount !== undefined &&
+            dish.discount !== null &&
+            Number(dish.discount) > 0
+        ) {
+
+            discountHTML = `
+
+                <div>
+
+                    <span class="discount-badge">
+
+                        ${dish.discount}% OFF
+
+                    </span>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        // =================================
+        // OFFER
+        // =================================
+
+        let offerHTML = "";
+
+
+        if (
+            dish.offer &&
+            String(dish.offer).trim() !== ""
+        ) {
+
+            offerHTML = `
+
+                <div class="offer-box">
+
+                    <div class="offer-title">
+
+                        🎁 Special Offer
+
+                    </div>
+
+                    <div>
+
+                        ${escapeHTML(
+                            String(dish.offer)
+                        )}
+
+                    </div>
+
+                </div>
+
+            `;
+
+        }
+
+
+
+        // =================================
+        // CATEGORY
+        // =================================
+
+        const category =
+            dish.category &&
+            String(dish.category).trim() !== ""
+
+            ? dish.category
+
+            : "General";
+
+
+
+        // =================================
+        // IMAGE
+        // =================================
+
+        const image =
+            dish.image &&
+            String(dish.image).trim() !== ""
+
+            ? dish.image
+
+            : "/images/default-food.jpg";
+
+
+
+        // =================================
+        // CARD
+        // =================================
+
+        container.innerHTML += `
+
+            <div
+                class="food-card
+                ${isCombo ? "combo-card" : ""}">
+
+
+                ${comboRibbon}
+
+
+                <img
+                    src="${image}"
+                    class="food-image"
+                    alt="${escapeHTML(
+                        dish.name || "Food"
+                    )}"
+                    onerror="
+                        this.src='/images/default-food.jpg';
+                    ">
+
+
+                <div class="food-body">
+
+
+                    <h3 class="food-name">
+
+                        ${escapeHTML(
+                            dish.name || "Unnamed Dish"
+                        )}
+
+                    </h3>
+
+
+                    <div>
+
+                        <span class="category-badge">
+
+                            ${escapeHTML(
+                                category
+                            )}
+
+                        </span>
+
+                    </div>
+
+
+                    ${discountHTML}
+
+
+                    ${priceHTML}
+
+
+                    ${offerHTML}
+
+
+                    <div class="type-label">
+
+                        ${isCombo
+                            ? "⭐ Combo Meal"
+                            : "🍴 Regular Food"}
+
+                    </div>
+
+
+                    <button
+                        class="delete-btn"
+                        onclick="
+                            deleteFood(${dish.id})
+                        ">
+
+                        🗑️ Delete Dish
+
+                    </button>
+
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+
+
+// =================================
+// DELETE FOOD
+// =================================
+
+function deleteFood(id) {
+
+
+    const confirmed =
+        confirm(
+            "Are you sure you want to delete this dish?"
+        );
+
+
+    if (!confirmed) {
+
+        return;
+
+    }
+
+
+    fetch(
+        `/admin/delete-food/${id}`,
+        {
+            method: "DELETE"
+        }
+    )
+
+    .then(response => {
+
+        if (!response.ok) {
+
+            throw new Error(
+                "Delete request failed"
+            );
+
+        }
+
+        return response.json();
+
+    })
+
+    .then(data => {
+
+        if (data.success) {
+
+            alert(
+                "Dish deleted successfully!"
+            );
+
+            location.reload();
+
+        }
+
+        else {
+
+            alert(
+                "Unable to delete dish."
+            );
+
+        }
+
+    })
+
+    .catch(error => {
+
+        console.error(error);
+
+        alert(
+            "Something went wrong while deleting the dish."
+        );
+
+    });
+
+}
+
+
+
+// =================================
+// HTML ESCAPE
+// =================================
+
+function escapeHTML(value) {
+
+    return String(value)
+
+        .replace(/&/g, "&amp;")
+
+        .replace(/</g, "&lt;")
+
+        .replace(/>/g, "&gt;")
+
+        .replace(/"/g, "&quot;")
+
+        .replace(/'/g, "&#039;");
+
+}
+
+
+</script>
+
 
 </body>
 

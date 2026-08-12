@@ -7,9 +7,10 @@ const authRoutes = require("./routes/auth");
 const customerRoutes = require("./routes/customer");
 const menuRoutes = require("./routes/menu");
 const adminRoutes = require("./routes/admin");
+const reviewRoutes = require("./routes/review");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 
 // =========================
@@ -52,7 +53,7 @@ app.use(authRoutes);
 app.use(customerRoutes);
 app.use(menuRoutes);
 app.use(adminRoutes);
-
+app.use(reviewRoutes);
 
 // =========================
 // 404 Page
@@ -77,6 +78,6 @@ app.use((err, req, res, next) => {
 // Start Server
 // =========================
 
-app.listen(PORT, () => {
-    console.log(`Server running at http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Annapurna server running on port ${PORT}`);
 });

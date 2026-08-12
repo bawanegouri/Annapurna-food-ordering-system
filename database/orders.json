@@ -1,0 +1,175 @@
+[
+    {
+        "id": 1786440365048,
+        "customerName": "abc",
+        "customerEmail": "abc@gmail.com",
+        "phone": "9873232454",
+        "customerId": "abc@gmail.com",
+        "deliveryAddress": {
+            "house": "ganesh apartments",
+            "area": "katol road",
+            "landmark": "near cricket stadium",
+            "city": "katol",
+            "state": "Maharashtra",
+            "pincode": "441302"
+        },
+        "paymentMethod": "UPI",
+        "paymentStatus": "Pending",
+        "items": [
+            {
+                "id": 1786433972580,
+                "name": "Kids meal",
+                "price": 120,
+                "category": "Kids",
+                "type": "combo",
+                "originalPrice": 199,
+                "discount": 25,
+                "offer": "Free Orange Juice",
+                "image": "/images/1786433972564-Palak Chapati + Jeera Aloo + Orange.jpg"
+            }
+        ],
+        "foodTotal": 120,
+        "deliveryCharge": 40,
+        "discount": 0,
+        "total": 160,
+        "status": "Delivered",
+        "createdAt": 1786440365048
+    },
+    {
+        "id": 1786440452901,
+        "customerName": "khushi",
+        "customerEmail": "khushi@gmail.com",
+        "phone": "7219520357",
+        "customerId": "khushi@gmail.com",
+        "deliveryAddress": {
+            "house": "flat 05",
+            "area": "kalmeshwar road",
+            "landmark": "near durga mandir",
+            "city": "nagpur",
+            "state": "Maharashtra",
+            "pincode": "441501"
+        },
+        "paymentMethod": "Cash on Delivery",
+        "paymentStatus": "Pending",
+        "items": [
+            {
+                "id": 1786439301026,
+                "name": "Family Dinner Meal",
+                "price": 300,
+                "category": "Family",
+                "type": "combo",
+                "originalPrice": 380,
+                "discount": 50,
+                "offer": "Free Rasmalai🍮",
+                "image": "/images/1786439301013-Indian Dinner Party Menu (Vegetarian).jpg"
+            },
+            {
+                "id": 1786434607740,
+                "name": "Healthy Meal🥗",
+                "price": 120,
+                "category": "Healthy",
+                "type": "combo",
+                "originalPrice": 190,
+                "discount": 30,
+                "offer": "Free Beetroot juice",
+                "image": "/images/1786434607731-47850814786375555.jpg"
+            }
+        ],
+        "foodTotal": 420,
+        "deliveryCharge": 40,
+        "discount": 0,
+        "total": 460,
+        "status": "Delivered",
+        "createdAt": 1786440452901
+    },
+    {
+        "id": 1786441290490,
+        "customerName": "khushi",
+        "customerEmail": "khushi@gmail.com",
+        "phone": "1234567890",
+        "customerId": "khushi@gmail.com",
+        "deliveryAddress": {
+            "house": "flat 08",
+            "area": "nagur",
+            "landmark": "hfh",
+            "city": "nagpur",
+            "state": "Maharashtra",
+            "pincode": "441150"
+        },
+        "paymentMethod": "UPI",
+        "paymentStatus": "Pending",
+        "items": [
+            {
+                "id": 1786434109622,
+                "name": "Birthday Meal",
+                "price": 450,
+                "category": "Combo",
+                "type": "combo",
+                "originalPrice": 500,
+                "discount": 50,
+                "offer": "Free 2 Ice Creams",
+                "image": "/images/1786434109611-645844402818477833.jpg"
+            }
+        ],
+        "foodTotal": 450,
+        "deliveryCharge": 40,
+        "discount": 0,
+        "total": 490,
+        "status": "Delivered",
+        "createdAt": 1786441290490
+    },
+    {
+        "id": 1786556001593,
+        "customerName": "khushi",
+        "customerEmail": "khushi@gmail.com",
+        "phone": "9789345265",
+        "customerId": "khushi@gmail.com",
+        "deliveryAddress": {
+            "house": "flat 05",
+            "area": "katol road",
+            "landmark": "near cricket stadium",
+            "city": "katol",
+            "state": "Maharashtra",
+            "pincode": "441302"
+        },
+        "paymentMethod": "UPI",
+        "paymentStatus": "Pending",
+        "items": [
+            {
+                "id": 1786388028132,
+                "name": "Aloo Paratha",
+                "price": 75,
+                "category": "North Indian",
+                "type": "food",
+                "originalPrice": 0,
+                "discount": 0,
+                "offer": "",
+                "image": "/images/1786388028126-aloo_paratha.jpg"
+            },
+            {
+                "id": 1786387960534,
+                "name": "Ice cream",
+                "price": 50,
+                "category": "Desserts",
+                "type": "food",
+                "originalPrice": 0,
+                "discount": 0,
+                "offer": "",
+                "image": "/images/1786387960529-68746443554.jpg"
+            },
+            {
+                "id": 1786091800888,
+                "name": "Idli",
+                "price": 90,
+                "category": "South Indian",
+                "image": "/images/1786091800869-Soft & Fluffy Idly.jpg"
+            }
+        ],
+        "foodTotal": 215,
+        "deliveryCharge": 40,
+        "discount": 0,
+        "total": 255,
+        "status": "Delivered",
+        "createdAt": 1786556001593
+    }
+]

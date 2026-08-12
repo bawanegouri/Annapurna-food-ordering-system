@@ -22,9 +22,17 @@
 
 <div class="container py-5">
 
-    <h1 class="mb-4">
-        Welcome 👋
-    </h1>
+   <div class="text-center mb-4">
+
+    <h2 class="fw-bold">
+        👋 Welcome, <span id="customerName">Customer</span>!
+    </h2>
+
+    <p class="text-muted">
+        Ready to order something delicious?
+    </p>
+
+</div>
 
     <div class="row">
 
@@ -111,6 +119,24 @@
     </small>
 
 </footer>
+<script>
 
+fetch("/api/current-user")
+    .then(response => response.json())
+    .then(user => {
+
+        if (user.success && user.name) {
+
+            document.getElementById("customerName").textContent =
+                user.name;
+
+        }
+
+    })
+    .catch(error => {
+        console.error("Unable to load user:", error);
+    });
+
+</script>
 </body>
 </html>
