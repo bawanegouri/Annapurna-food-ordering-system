@@ -20,14 +20,21 @@ const PORT = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.set("trust proxy", 1);
+
 app.use(
     session({
-        secret: "annapurna_secret_key",
+        secret: process.env.SESSION_SECRET || "annapurna_secret_key",
         resave: false,
-        saveUninitialized: false
+        saveUninitialized: false,
+        cookie: {
+            secure: true,
+            httpOnly: true,
+            sameSite: "lax",
+            maxAge: 1000 * 60 * 60 * 24
+        }
     })
 );
-
 
 // =========================
 // Static Files
